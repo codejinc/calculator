@@ -6,28 +6,44 @@ def check_HDL(HDL_result):
     else:
         return "low"
 
-def cholestoral_interface():
-    print("cholestora check")
-    chol_input = input("Enter your chol result")
-    chol_data = chol_input.split("=")
-    if chol_data[0] = "HDL":
-        result = check_HDL(int(chol_data[1]))
-        print("resukt is {}".format(result))
+def check_LDL(LDL_result):
+    if LDL_result < 130:
+        return "Normal"
+    elif 130 <= LDL_result <= 159:
+        return "Borderline high"
+    elif 160 <= LDL_result <= 189:
+        return "high"
+    else:
+        return "very high"
 
+def cholestoral_interface():
+    print("Cholesterol check")
+    chol_input = input("Enter your cholestoral test result: ")
+    chol_data = chol_input.split("=")
+    if chol_data[0] == "HDL":
+        result = check_HDL(int(chol_data[1]))
+        print("The result is {}".format(result))
+    if chol_data[0] == "LDL":
+        result = check_LDL(int(chol_data[1]))
+        print("The result is {}".format(result))
     
+
 def interface():
     print("My calculator program")
     keep_running = True
     while keep_running:
         print("Option: ")
-        print("1 - chol ")
-        print("9 - quit")
-        choice = input("Enter your choice")
+        print("1 - Cholesterol Checks")
+        print("9 - Quit")
+        choice = input("Enter your choice: ")
         if choice == '9':
-            keep_running = False
-        elif choice = '1':
+           keep_running = False
+        elif choice == '1':
             cholestoral_interface()
+            
     return
+        
 
-    if __name__ == "__main__":
-        interface()
+if __name__ == "__main__":
+    interface()
+    

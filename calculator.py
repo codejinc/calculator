@@ -1,10 +1,13 @@
 def interface():
     print("My calculator program")
-    print("Option: ")
-    print("9 - quit")
-    choice = input("Enter your choice")
-    if choice == '9':
-        return
+    keep_running = True
+    while keep_running:
+        print("Option: ")
+        print("9 - quit")
+        choice = input("Enter your choice")
+        if choice == '9':
+            keep_running = False
+    return
 
-    if _name_ == "_main_":
+    if __name__ == "__main__":
         interface()
